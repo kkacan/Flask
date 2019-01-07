@@ -1,0 +1,41 @@
+.moj-header {
+    background-image: url("/static/logo.jpg") ;
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover; ;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+    margin-top: 0px;
+    padding: 30px;
+    }
+.moj-header-color {
+        background-color: #201f24 ;
+        -webkit-background-size: cover; /* For WebKit*/
+        -moz-background-size: cover;    /* Mozilla*/
+        -o-background-size: cover;      /* Opera*/
+        background-size: cover; ;
+        background-repeat: no-repeat;
+        height: 100px;
+        width: 100%;
+        margin-top: 0px;
+        padding: 30px;
+        }
+.moj-content {
+    
+     margin: auto;
+     
+    }
+
+.moj-logo {
+    
+    margin: 0;
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 100px;
+    width: 100px;
+    
+   }
