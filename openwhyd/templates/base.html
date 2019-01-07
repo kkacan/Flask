@@ -1,0 +1,78 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}MusicBox{% endblock %}
+
+{%- block styles %}
+<!-- Bootstrap Flatly -->
+<link href="{{url_for('static', filename = 'bootstrap.slate.min.css')}}" rel="stylesheet">
+<link href="{{url_for('static', filename = 'moj.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{%- endblock styles %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+{% endblock %}
+
+{% block navbar %}
+
+<img src="/static/logo.jpg" alt="Header" class="moj-logo">
+<div class="moj-header-color">
+    <div class="moj-content">
+        <div class="form-group" align="center">
+            <div class="input-group">
+                <form action="/search">
+                    <span class="input-group-btn">  
+                      <input type="text" class="form-control" placeholder="{% trans %}Search Music..{% endtrans %}" name="query" required>
+                      <button  type="submit" class="btn btn-default">{% trans %}Search{% endtrans %}</button>
+                    </span>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="navbar" role="navigation">
+    <div class="container">
+        
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <a class="navbar-brand" href="/">MusicBox</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('index') }}">{% trans %}All{% endtrans %}</a></li>
+                <li><a href="{{ url_for('genre', id='electro') }}">Electro</a></li>
+                <li><a href="{{ url_for('genre', id='hiphop') }}">Hip Hop</a></li>
+                <li><a href="{{ url_for('genre', id='pop') }}">Pop</a></li>
+                <li><a href="{{ url_for('genre', id='rock') }}">Rock</a></li>
+                <li><a href="{{ url_for('genre', id='punk') }}">Punk</a></li>
+                <li><a href="{{ url_for('genre', id='metal') }}">Metal</a></li>
+                <li><a href="{{ url_for('genre', id='blues') }}">Blues</a></li>
+                <li><a href="{{ url_for('genre', id='rb') }}">R&B</a></li>
+                <li><a href="{{ url_for('genre', id='jazz') }}">Jazz</a></li>
+                <li><a href="{{ url_for('genre', id='classical') }}">{% trans %}Classical{% endtrans %}</a></li>
+                <li><a href="{{ url_for('genre', id='reggae') }}">{% trans %}Reggae{% endtrans %}</a></li>
+                <li><a href="{{ url_for('genre', id='world') }}">{% trans %}World{% endtrans %}</a></li>
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+				<li><a href="?lang=hr">HR</a></li>
+				<li><a href="?lang=en">EN</a></li>
+			</ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}

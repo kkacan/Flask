@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+        <h2 class="page-header" align="left">{{user[0].uNm}}</h2>
+        <table class="table table-striped table-condensed">
+          
+            <tbody>
+      
+        {% for music in user %}
+            
+            <tr>
+                <td><iframe width="220" height="125" src="https://www.youtube.com/embed/{{music.eId}}"frameborder="0"></iframe>
+                        </td>
+                <td style="width:100%"><h4>{{music.name}}</h4><br>
+                    <img src="{{music.img}}" alt="Avatar"style="width:40px; height:40px" class="img-circle">&nbsp;&nbsp;
+                    <a href = {{ url_for('user', userId=music["uId"]) }}> {{music.uNm}}</a></td>
+    
+            </tr>
+        {% endfor %}
+            </tbody>
+        </table>
+        <div class="navbar navbar-default navbar-fixed-bottom">
+                <div class="container">
+                  <p class="navbar-text pull-left">© 2019 - Kristijan Kačan
+                       <a href="http://tinyurl.com/tbvalid" target="_blank" >{% trans %}HTML 5 Validation{% endtrans %}</a>
+                  </p>
+            
+                  <a href="http://openwhyd.github.io/openwhyd/API" class="navbar-btn btn-success btn pull-right">
+                    {% trans %}Powered by Openwhyd API{% endtrans %}</a>
+                </div>
+        </div>
+</div>
+{% endblock %}
