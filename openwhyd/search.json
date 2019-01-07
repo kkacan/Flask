@@ -1,0 +1,69 @@
+{
+    "q": "50",
+    "results": {
+        "myPosts": [
+            {
+                "id": "5c2f89d51dc6245d75cfc6c0",
+                "eId": "/yt/5qm8PH4xAss",
+                "url": "//youtube.com/watch?v=5qm8PH4xAss",
+                "img": "https://i.ytimg.com/vi/5qm8PH4xAss/default.jpg",
+                "name": "50 Cent - In Da Club (Int'l Version)",
+                "uId": "5c2f88a94d91d27f3f7d17ee",
+                "uNm": "Kristijan Kačan",
+                "score": 0
+            }
+        ],
+        "theirPosts": [
+            {
+                "id": "5c06eafe5b1d901f32b6ff2d",
+                "eId": "/yt/5RDSkR8_AQ0",
+                "url": "//youtube.com/watch?v=5RDSkR8_AQ0",
+                "img": "https://i.ytimg.com/vi/5RDSkR8_AQ0/default.jpg",
+                "name": "50 Cent - Ayo Technology ft. Justin Timberlake",
+                "uId": "5421ada8e04b7b4fca7f0e9a",
+                "uNm": "Alexis Bondoux",
+                "score": 0
+            },
+            {
+                "id": "5bd9ca6ceb413459cfec034c",
+                "eId": "/yt/s7JPIhfRyD0",
+                "url": "//youtube.com/watch?v=s7JPIhfRyD0",
+                "img": "https://i.ytimg.com/vi/s7JPIhfRyD0/default.jpg",
+                "name": "50 Cent - When it Rains it Pours",
+                "uId": "553e4ed25969c78f98df65fa",
+                "uNm": "datniggaz",
+                "score": 0
+            },
+            {
+                "id": "5ba1fe490b03ca2b0115521c",
+                "eId": "/yt/mLeskwd5FVU",
+                "url": "//youtube.com/watch?v=mLeskwd5FVU",
+                "img": "https://i.ytimg.com/vi/mLeskwd5FVU/default.jpg",
+                "name": "50 Cent - P.I.M.P (ZIGGY Remix)",
+                "uId": "52df0cd87e91c862b2b38509",
+                "uNm": "Le Poste Cassette ",
+                "score": 0
+            },
+            {
+                "id": "5b04b8189b8a8e1d22b1056f",
+                "eId": "/yt/IZKBa6bvUjo",
+                "url": "//youtube.com/watch?v=IZKBa6bvUjo",
+                "img": "https://i.ytimg.com/vi/IZKBa6bvUjo/default.jpg",
+                "name": "50 Cent - Candy Shop W/ Lyrics",
+                "uId": "5b049d46a08223d7e20723be",
+                "uNm": "Likitha Aradhyula",
+                "score": 0
+            },
+            {
+                "id": "5aec4bc1bbcf721689f6f070",
+                "eId": "/yt/IbDTGT0fa_Q",
+                "url": "//youtube.com/watch?v=IbDTGT0fa_Q",
+                "img": "https://i.ytimg.com/vi/IbDTGT0fa_Q/default.jpg",
+                "name": "50 Cent - When It Rains It Pours",
+                "uId": "52f3de797e91c862b2b520ed",
+                "uNm": "Alexandre Isel",
+                "score": 0
+            }
+        ]
+    }
+}
