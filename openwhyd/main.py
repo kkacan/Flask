@@ -87,13 +87,13 @@ def search():
     # Provjera da li je prazan query
     if (query!=""):
     
-	    # Priprema parametara
+        # Priprema parametara
         parameters = { 'context': 'addTrack', 'q': query, 'limit': Config.limit, 'format': 'json' }
 	
-	    # Poziv REST servisa, HTTP GET
+        # Poziv REST servisa, HTTP GET
         response = requests.get(Config.searchURL, params=parameters)
 	
-	    # JSON decoder (http://docs.python-requests.org/en/latest/user/quickstart/#json-response-content)
+        # JSON decoder (http://docs.python-requests.org/en/latest/user/quickstart/#json-response-content)
         search = response.json()
         
         # Iteracija kroz JSON objekt i formatiranje podataka za prikaz
