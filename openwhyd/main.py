@@ -5,6 +5,8 @@ from datetime import datetime
 from flask_caching import Cache
 from config import Config
 from flask_babel import Babel
+import logging
+
 
 app = Flask(__name__)
 app.secret_key = 'blabla'
@@ -25,6 +27,9 @@ def index():
 @cache.cached(timeout=Config.timeout)
 def genre(id):
     
+    # Log
+    app.logger.info("Pozvan žanr sa oznakom: "+id)
+
     # Priprema parametara
     parameters = { 'format': 'json', 'limit': Config.limit}
     
@@ -48,6 +53,9 @@ def genre(id):
 @cache.cached(timeout=Config.timeout)
 def user(userId):
 
+    # Log
+    app.logger.info("Pozvan user sa oznakom: "+userId)
+
 	# Priprema parametara
     parameters = { 'format': 'json', 'limit': Config.limit}
 	
@@ -69,9 +77,12 @@ def user(userId):
 @app.route("/search", methods=['GET', 'POST'])
 @cache.cached(timeout=Config.timeout)
 def search():
-    
-    # Dohvaćanje query argumenta
+
+    # Dohvaćanje query parametra
     query = request.args.get('query')
+
+    # Log
+    app.logger.info("Pozvano pretraživanje sa parametrom: "+query)
 
     # Provjera da li je prazan query
     if (query!=""):
@@ -104,8 +115,16 @@ def search():
 def get_locale():
     if request.args.get('lang'):
         session['lang'] = request.args.get('lang')
-    return session.get('lang', 'hr')
+    return session.get('lang', 'en')
 
 if __name__ == "__main__":
-	app.run()
+
+    # Loggiranje
+    formatter = logging.Formatter("[%(asctime)s] {%(pathname)s:%(lineno)d} %(levelname)s - %(message)s")
+    handler = logging.FileHandler('openwhydApp.log')
+    handler.setLevel(logging.INFO)
+    handler.setFormatter(formatter)
+    app.logger.addHandler(handler)
+
+    app.run()
 
