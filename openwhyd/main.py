@@ -56,13 +56,13 @@ def user(userId):
     # Log
     app.logger.info("Pozvan user sa oznakom: "+userId)
 
-	# Priprema parametara
+    # Priprema parametara
     parameters = { 'format': 'json', 'limit': Config.limit}
 	
-	# Poziv REST servisa, HTTP GET
+    # Poziv REST servisa, HTTP GET
     response = requests.get(Config.userURL + userId, params=parameters)
 	
-	# JSON decoder (http://docs.python-requests.org/en/latest/user/quickstart/#json-response-content)
+    # JSON decoder (http://docs.python-requests.org/en/latest/user/quickstart/#json-response-content)
     user = response.json()
 
     # Iteracija kroz JSON objekt i formatiranje podataka za prikaz
