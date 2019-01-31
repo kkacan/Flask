@@ -1,5 +1,5 @@
 # MusicBox aplikacija u Flasku
-##### Powered by Openwhyd API [![Openwhyd](https://openwhyd.org/images/logo-s.png)](https://openwhyd.org/) 
+##### Powered by Openwhyd API [![Openwhyd](https://openwhyd.org/images/logo-s.png)](http://openwhyd.github.io/openwhyd/API) 
 
 MusicBox je web aplikacija izrađena u Flasku koja služi za prikaz Youtube glazbenih spotova koje su postavili korisnici Openwhyd servisa. Namjenjena je svim zaljubljenicima u glazbu. Aplikacija prikazuje glazbene spotove po žanrovima:
 
