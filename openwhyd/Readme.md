@@ -1,7 +1,7 @@
-# MusicBox aplikacija u Flasku
+# MusicBox web aplikacija
 ##### Powered by Openwhyd API [![Openwhyd](https://openwhyd.org/images/logo-s.png)](http://openwhyd.github.io/openwhyd/API) 
-
-MusicBox je web aplikacija izrađena u Flasku koja služi za prikaz Youtube glazbenih spotova koje su postavili korisnici Openwhyd servisa. Namjenjena je svim zaljubljenicima u glazbu. Aplikacija prikazuje glazbene spotove po žanrovima:
+---
+MusicBox je web aplikacija izrađena u u Flask Web Frameworku koja služi za prikaz Youtube glazbenih spotova koje su postavili korisnici Openwhyd servisa. Korišten je Openwhyd API za dohvaćanje podataka u JSON formatu. Namjenjena je svim zaljubljenicima u glazbu. Aplikacija prikazuje glazbene spotove po žanrovima:
 
 - Electro 
 - Hip-hop 
@@ -16,11 +16,11 @@ MusicBox je web aplikacija izrađena u Flasku koja služi za prikaz Youtube glaz
 - Reggae
 - World
 
-> Moguće je pretraživati glazbene spotove po:
-- Nazivu
+ Moguće je pretraživati glazbene spotove po:
+- Nazivu pjesme
 - Izvođaču
 
-> Odabirom pojedinog korisnika dobijemo glazbene spotove koje je odabrani korisnik postavio na servis Openwhyd. 
+Odabirom pojedinog korisnika dobijemo glazbene spotove koje je odabrani korisnik postavio na servis Openwhyd. 
 Aplikacija je prevedena na dva jezika: 
 - Hrvatski
 - Engleski
@@ -28,7 +28,7 @@ Aplikacija je prevedena na dva jezika:
 
 ### Korištene tehnike / tehnologije
 
-  - Paython
+  - Python
   - HTML, CSS, JavaScript
   - Predlošci
   - Web forme
