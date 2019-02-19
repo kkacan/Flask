@@ -13,100 +13,107 @@ app.secret_key = 'blabla'
 bootstrap = Bootstrap(app)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
-# Prijevod
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 babel = Babel(app)
 
 @app.route('/')
 @cache.cached(timeout=Config.timeout)
 def index():
+    '''
+    Funkcija poziva funkciju genre bez id parametra za prikaz svih žanrova
 
+    :return: genre('')
+   
+    '''    
     return genre('')
 
 @app.route('/<id>')
 @cache.cached(timeout=Config.timeout)
 def genre(id):
-    
-    # Log
+    '''
+    Funkcija dohvaća JSON objekt sa Openwhyd API servisa prema id-u oznake žanra i formatira ga za prikaz
+
+    :param str id: Oznaka žanra
+    :return: Stranica index.html sa jsonMusic objektom
+   
+    '''    
+
     app.logger.info("Pozvan žanr sa oznakom: "+id)
 
-    # Priprema parametara
     parameters = { 'format': 'json', 'limit': Config.limit}
-    
-    # Poziv REST servisa, HTTP GET
+
     response = requests.get(Config.allURL + id, params=parameters)
-   
-    # JSON decoder (http://docs.python-requests.org/en/latest/user/quickstart/#json-response-content)
+ 
     jsonMusic = response.json()
-  
-     # Iteracija kroz JSON objekt i formatiranje podataka za prikaz
+
     for music in jsonMusic["tracks"]:
 
         if (music["eId"].startswith('/sc/')) or (music["eId"].startswith('/vi/')):
                jsonMusic["tracks"].remove(music)
         
         music["eId"] = music["eId"].replace('/yt/','')
+        if (music["rankIncr"] == None):
+               music["rankIncr"] = ""
       
     return render_template('index.html', jsonMusic=jsonMusic)
 
 @app.route("/user/<userId>")
 @cache.cached(timeout=Config.timeout)
 def user(userId):
+    '''
+    Funkcija dohvaća JSON objekt sa Openwhyd API servisa prema id-u korisnika i formatira ga za prikaz
 
-    # Log
+    :param int userId: Oznaka korisnika
+    :return: Stranica user.html sa user objektom
+    
+    '''    
+    
     app.logger.info("Pozvan user sa oznakom: "+userId)
-
-    # Priprema parametara
+   
     parameters = { 'format': 'json', 'limit': Config.limit}
-	
-    # Poziv REST servisa, HTTP GET
+ 
     response = requests.get(Config.userURL + userId, params=parameters)
-	
-    # JSON decoder (http://docs.python-requests.org/en/latest/user/quickstart/#json-response-content)
+    
     user = response.json()
 
-    # Iteracija kroz JSON objekt i formatiranje podataka za prikaz
     for music in user:
         if (music["eId"].startswith('/sc/')) or (music["eId"].startswith('/vi/')):
                 user.remove(music)
         
         music["eId"] = music["eId"].replace('/yt/','')
- 
+        
     return render_template("user.html", user=user)
 
 @app.route("/search", methods=['GET', 'POST'])
 @cache.cached(timeout=Config.timeout)
 def search():
+    '''
+    Funkcija dohvaća JSON objekt sa Openwhyd API servisa prema unosu query parametra i formatira ga za prikaz
 
-    # Dohvaćanje query parametra
+    :return: Stranica search.html sa search objektom
+   
+    '''    
+
     query = request.args.get('query')
 
-    # Log
     app.logger.info("Pozvano pretraživanje sa parametrom: "+query)
 
-    # Provjera da li je prazan query
     if (query!=""):
-    
-        # Priprema parametara
+
         parameters = { 'context': 'addTrack', 'q': query, 'limit': Config.limit, 'format': 'json' }
-	
-        # Poziv REST servisa, HTTP GET
+
         response = requests.get(Config.searchURL, params=parameters)
-	
-        # JSON decoder (http://docs.python-requests.org/en/latest/user/quickstart/#json-response-content)
+
         search = response.json()
-        
-        # Iteracija kroz JSON objekt i formatiranje podataka za prikaz
+
         for music in search:
             if (music["eId"].startswith('/sc/')) or (music["eId"].startswith('/vi/')):
                     search.remove(music)
         
             music["eId"] = music["eId"].replace('/yt/','')
-  
     
         return render_template("search.html", search=search)    
 
-    # Ako je query prazan preusmjeri na index
     else:
 
         return redirect(url_for('index'))
@@ -119,7 +126,6 @@ def get_locale():
 
 if __name__ == "__main__":
 
-    # Loggiranje
     formatter = logging.Formatter("[%(asctime)s] {%(pathname)s:%(lineno)d} %(levelname)s - %(message)s")
     handler = logging.FileHandler('openwhydApp.log')
     handler.setLevel(logging.INFO)
