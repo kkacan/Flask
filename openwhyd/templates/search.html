@@ -10,9 +10,9 @@
         {% for music in search %}
             
             <tr>
-                <td><iframe width="220" height="125" src="https://www.youtube.com/embed/{{music.eId}}"frameborder="0"></iframe>
-                        </td>
-                <td style="width:100%"><h4>{{music.name}}</h4><br>
+                <!-- <td><iframe width="220" height="125" src="https://www.youtube.com/embed/{{music.eId}}"frameborder="0"></iframe></td> -->
+                <td><div id='plyr-youtube' data-type="youtube" data-video-id="{{music.eId}}" style="height: 180px; width: 276px;"> </div></td>
+                <td style="width:100%"><a href="https://openwhyd.org/c/{{music._id}}"><h4>{{music.name}}</h4></a><br>
                     <img src="{{music.img}}" alt="Avatar"style="width:40px; height:40px" class="img-circle">&nbsp;&nbsp;
                     <a href = {{ url_for('user', userId=music["uId"]) }}> {{music.uNm}}</a></td>
     
@@ -31,4 +31,7 @@
                 </div>
         </div>
 </div>
+<script>
+        plyr.setup("#plyr-youtube");
+   </script>
 {% endblock %}
