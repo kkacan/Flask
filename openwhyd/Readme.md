@@ -38,4 +38,5 @@ Aplikacija je prevedena na dva jezika:
   -  Deployment
   -  Bootstrap
 
-
+>Kristijan
+>Kačan
